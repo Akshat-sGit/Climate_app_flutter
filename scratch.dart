@@ -4,10 +4,10 @@ void main() {
   performTasks();
 }
 
-void performTasks() {
+void performTasks() async {
   task1();
-  task2();
-  task3();
+  String task2Result = await task2();
+  task3(task2Result);
 }
 
 void task1() {
@@ -15,14 +15,20 @@ void task1() {
   print('Task 1 complete');
 }
 
-void task2() {
+Future<String> task2() async {
   Duration threeSeconds = Duration(seconds: 3);
-  sleep(threeSeconds);
-  String result = 'task 2 data';
-  print('Task 2 complete');
+
+  String? result; // Change: Make the variable nullable
+
+  await Future.delayed(threeSeconds, () {
+    result = 'task 2 data';
+    print('Task 2 complete');
+  });
+
+  return result!; // Change: Add '!' to assert that result is not null
 }
 
-void task3() {
+void task3(String task2Data) {
   String result = 'task 3 data';
-  print('Task 3 complete');
+  print('Task 3 complete with $task2Data');
 }
