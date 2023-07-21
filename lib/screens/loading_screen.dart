@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'dart:ui'; 
+import 'dart:ui';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -14,22 +14,37 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low);
-    print(position);
+    try {
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.low);
+      print(position);
+    } catch (e) {
+      print(e); 
+    }
+  }
+
+  void somethingThatExpectedLessThan10(int n){ 
+    try{ 
+      somethingThatExpectedLessThan10(12); 
+    } catch (e){ 
+      print(e); 
+    }
   }
 
   Widget build(BuildContext context) {
+    String myMargin = 'abc';
+    double myMarginAsDouble;
+
+    try {
+      myMarginAsDouble = double.parse(myMargin);
+    } catch (e) {
+      print(e);
+    }
+
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            //Get the current location
-            
-          },
-          child: Text('Get Location'),
-        ),
-      ),
-    );
+        body: Container(
+      margin: EdgeInsets.all(30),
+      color: Colors.red,
+    ));
   }
 }
