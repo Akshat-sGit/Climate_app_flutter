@@ -24,7 +24,6 @@ Future<String> task2() async {
     result = 'task 2 data';
     print('Task 2 complete');
   });
-
   return result!; // Change: Add '!' to assert that result is not null
 }
 
