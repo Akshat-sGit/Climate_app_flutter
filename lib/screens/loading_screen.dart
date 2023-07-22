@@ -25,14 +25,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
       somethingThatExpectedLessThan10(12);
     } catch (e) {
       print(e);
-    }
+    }  
   }
 
   Widget build(BuildContext context) {
+
     String myMargin = 'abc';
     // ignore: unused_local_variable
     late double myMarginAsDouble;
-
     try {
       myMarginAsDouble = double.parse(myMargin);
     } catch (e) {
@@ -41,8 +41,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     return Scaffold(
         body: Container(
-      margin: EdgeInsets.all(30),
-      color: Colors.red,
-    ));
-  }
+          margin: EdgeInsets.all(30),
+          color: Colors.red,
+        )
+      );
+    }
 }
