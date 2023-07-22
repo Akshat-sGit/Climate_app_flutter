@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'dart:ui';
+import 'package:clima/services/location.dart';
+
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -14,26 +14,24 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocation() async {
-    try {
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.low);
-      print(position);
-    } catch (e) {
-      print(e); 
-    }
+    Location location = Location();
+    await location.getCurrentLocation();
+    print(location.latitude);
+    print(location.longitude);
   }
 
-  void somethingThatExpectedLessThan10(int n){ 
-    try{ 
-      somethingThatExpectedLessThan10(12); 
-    } catch (e){ 
-      print(e); 
+  void somethingThatExpectedLessThan10(int n) {
+    try {
+      somethingThatExpectedLessThan10(12);
+    } catch (e) {
+      print(e);
     }
   }
 
   Widget build(BuildContext context) {
     String myMargin = 'abc';
-    double myMarginAsDouble;
+    // ignore: unused_local_variable
+    late double myMarginAsDouble;
 
     try {
       myMarginAsDouble = double.parse(myMargin);
