@@ -43,7 +43,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         body: Container(
           margin: EdgeInsets.all(30),
           color: Colors.red,
-        )
-      );
-    }
+          )
+    );
+  }
 }
