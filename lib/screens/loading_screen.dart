@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
-
+import 'package:flutter/material.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
